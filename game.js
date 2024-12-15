@@ -8,19 +8,38 @@ let currentLevelData = null;
 let usedProblemsThisSession = new Set();
 
 // Sound effects
-const sounds = {
-    correct: new Audio('sounds/correct.mp3'),
-    wrong: new Audio('sounds/wrong.mp3'),
-    levelComplete: new Audio('sounds/level-complete.mp3')
-};
+const sounds = {};
+
+// Function to load sounds with error handling
+function loadSounds() {
+    const soundFiles = {
+        correct: 'sounds/correct.mp3',
+        wrong: 'sounds/wrong.mp3',
+        levelComplete: 'sounds/level-complete.mp3'
+    };
+
+    for (const [name, path] of Object.entries(soundFiles)) {
+        const audio = new Audio();
+        audio.addEventListener('error', (e) => {
+            console.warn(`Sound ${name} failed to load:`, e);
+            sounds[name] = null; // Mark as unavailable
+        });
+        audio.src = path;
+        sounds[name] = audio;
+    }
+}
 
 // Mute state
 let isMuted = false;
 
-// Function to play sound if not muted
+// Function to play sound if not muted and available
 function playSound(soundName) {
     if (!isMuted && sounds[soundName]) {
-        sounds[soundName].play();
+        // Clone the audio to allow overlapping sounds
+        const sound = sounds[soundName].cloneNode();
+        sound.play().catch(e => {
+            console.warn(`Sound ${soundName} failed to play:`, e);
+        });
     }
 }
 
@@ -509,6 +528,9 @@ function initGame() {
 
 // Set up event listeners
 window.addEventListener('load', () => {
+    // Load sounds first
+    loadSounds();
+    
     document.getElementById('next-level-btn').addEventListener('click', nextLevel);
     document.getElementById('hint-btn').addEventListener('click', () => {
         alert('Match the math problems on the left with their answers on the right!');
