@@ -126,18 +126,22 @@ const mathProblems = {
         ],
         medium: [
             { text: '12 × 5', answer: '60' },
-            { text: '8 × 7', answer: '56' },
+            { text: '8 × 6', answer: '48' },
             { text: '9 × 6', answer: '54' },
-            { text: '7 × 9', answer: '63' },
+            { text: '7 × 6', answer: '42' },
             { text: '11 × 6', answer: '66' },
-            { text: '8 × 9', answer: '72' },
-            { text: '13 × 6', answer: '78' },
-            { text: '12 × 7', answer: '84' }
+            { text: '6 × 12', answer: '72' },
+            { text: '0 × 6', answer: '0' },
+            { text: '4 × 6', answer: '24' },
+            { text: '2 × 6', answer: '12' },
+            { text: '3 × 3', answer: '9' },
+            { text: '5 × 6', answer: '30' }
+            
         ],
         hard: [
-            { text: '23 × 5', answer: '115' },
-            { text: '34 × 6', answer: '204' },
-            { text: '18 × 9', answer: '162' },
+            { text: '5 × 5', answer: '25' },
+            { text: '12 × 2', answer: '24' },
+            { text: '1000 × 9', answer: '9000' },
             { text: '25 × 8', answer: '200' },
             { text: '16 × 15', answer: '240' },
             { text: '22 × 12', answer: '264' },
@@ -160,13 +164,13 @@ const mathProblems = {
         ],
         medium: [
             { text: '24 ÷ 6', answer: '4' },
-            { text: '35 ÷ 7', answer: '5' },
-            { text: '48 ÷ 8', answer: '6' },
-            { text: '54 ÷ 9', answer: '6' },
-            { text: '63 ÷ 7', answer: '9' },
-            { text: '72 ÷ 8', answer: '9' },
-            { text: '81 ÷ 9', answer: '9' },
-            { text: '96 ÷ 12', answer: '8' }
+            { text: '35 ÷ 5', answer: '7' },
+            { text: '48 ÷ 6', answer: '8' },
+            { text: '54 ÷ 6', answer: '9' },
+            { text: '15 ÷ 3', answer: '5' },
+            { text: '72 ÷ 6', answer: '12' },
+            { text: '100 ÷ 5', answer: '20' },
+            { text: '36 ÷ 6', answer: '6' }
         ],
         hard: [
             { text: '144 ÷ 12', answer: '12' },
